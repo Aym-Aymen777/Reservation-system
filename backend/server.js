@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const axios = require('axios');
 const rateLimit = require('express-rate-limit');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './config/.env') });
 const Redis = require("ioredis");
 
 const redis = new Redis(process.env.UPSTASH_REDIS_URL);

@@ -10,9 +10,9 @@ import emailjs from 'emailjs-com';
 
 axios.defaults.timeout = 15000;
 
-const serviceId=process.env.REACT_APP_EMAILJS_SERVICE_ID;
-const templateId=process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-const userId=process.env.REACT_APP_EMAILJS_USER_ID;
+const serviceId=import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId=import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const userId=import.meta.env.VITE_EMAILJS_USER_ID;
 
 function App() {
   const [step, setStep] = useState(1);
