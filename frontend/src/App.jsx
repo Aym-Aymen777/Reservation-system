@@ -10,6 +10,10 @@ import emailjs from 'emailjs-com';
 
 axios.defaults.timeout = 15000;
 
+const serviceId=process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const templateId=process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const userId=process.env.REACT_APP_EMAILJS_USER_ID;
+
 function App() {
   const [step, setStep] = useState(1);
   const [isSubmitError, setIsSubmitError] = useState(true);
@@ -193,14 +197,14 @@ function App() {
 
       
 
-      emailjs.send('service_h6ayeyl', 'template_e6c3k3f',  {
+      emailjs.send(serviceId, templateId, {
     name: reservationData.name,
     phone_number: reservationData.phone,
     party_size: reservationData.partySize,
     reservation_time: reservationData.reservationTime,
     special_requests: reservationData.specialRequests || "None 🥲",
   },
-'STvJU1xpUzx0NyEP_')
+  userId)
       .then((res) => {
        toast.success("Reservation created successfully!");
       }, (err) => {
