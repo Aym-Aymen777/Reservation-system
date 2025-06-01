@@ -8,7 +8,7 @@ import emailjs from 'emailjs-com';
 
 // Configure axios defaults
 
-axios.defaults.timeout = 15000;
+//axios.defaults.timeout = 15000;
 
 const serviceId=import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId=import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
