@@ -8,9 +8,9 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // Your Express backend
+        target: 'https://reserve4me.onrender.com', // Your Express backend
         changeOrigin: true,
-        secure: false,
+        secure: false, // If your backend uses HTTPS
       }
     }
   }

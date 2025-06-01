@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "./api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
@@ -129,7 +129,7 @@ function App() {
       const formattedPhone = formatPhoneNumber(formData.phone);
       setFormData((prev) => ({ ...prev, phone: formattedPhone }));
 
-      await axios.post("/api/send-otp", { phone: formattedPhone });
+      await api.post("/api/send-otp", { phone: formattedPhone });
 
       setOtpSent(true);
       setCountdown(60); // 60 second cooldown
@@ -157,7 +157,7 @@ function App() {
     setLoading(true);
 
     try {
-      const { data } = await axios.post("/api/verify-otp", {
+      const { data } = await api.post("/api/verify-otp", {
         phone: formData.phone,
         otp: formData.otp,
       });
@@ -193,7 +193,7 @@ function App() {
         specialRequests: formData.specialRequests.trim(),
       };
 
-      await axios.post("/api/reservations", reservationData);
+      await api.post("/api/reservations", reservationData);
 
       
 
